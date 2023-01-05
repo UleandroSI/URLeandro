@@ -1,4 +1,5 @@
 from django.db import models
+import hashlib, time
 
 # Create your models here.
 class Cadastro(models.Model):
@@ -26,3 +27,13 @@ class Cadastro(models.Model):
     def __str__(self):
         """ String para representar o objeto Cadastro (no site Admin)."""
         return self.nome
+
+    def save(
+        self, force_insert=False, force_update=False, using=None, update_fields=None, *args, **kwargs
+    ):
+        data = time.time()
+        nome = str(self.nome).encode()
+        data = str(data).encode()
+        hash = hashlib.sha1(nome + data)
+        hexhash = hash.hexdigest()
+        super(Cadastro, self).save(hexhash)
