@@ -53,33 +53,7 @@ $ yarn
 $ yarn start
 ```
 
-
-### Problemas
-- Ao acessar a página apresenta formulário:
-```
-<form action="{% url 'index' %}" name="cadastro" method="POST" novalidate>
-<input type="text" class="form-control" id="nome" placeholder="Nome para Link" name="nome" size="40" value="{{ nome }}">
-<button type="submit" class="btn btn-primary">Submit</button>
-</form>
-```
-- Então gera um hashSHA256, que será o field=nome na tabela Cadastros do Models, que será o ID e URL para acesso à página.
-```
-nome = models.CharField(max_length=64, verbose_name='Nome', primary_key=True, name='nome', help_text='Endereço único da página, criado por Hash MD5.')
-```
-- Ao criar já é direcionado para a página com outro formulário para inserir os links:
-```
-<form action="{% url 'dados' %}" name="inserir" method="POST">
-<input type="text" class="form-control" id="input_url" placeholder="Insira a URL aqui." name="input_url">
-<button type="submit" class="btn btn-primary">Submit</button>
-</form>
-```
-- Nesta página unica será inserido os links para cada página do site atrelado ao ID que é a própria URL.
-
-- Estou com dificuldades para montar as views.
-
-
-*** 
-### Autor
+# autor
 By uLeandroSP [See my Github](https://github.com/UleandroSI)
 ***
 ### Referências

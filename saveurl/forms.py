@@ -1,5 +1,5 @@
 from django import forms
-from saveurl.models import Cadastro, Envio
+from saveurl.models import Cadastro, Dados
 
 
 class CadastroForms(forms.ModelForm):
@@ -19,7 +19,8 @@ class CadastroForms(forms.ModelForm):
         exclude = ['created']
 
 
-class EnvioForms(forms.ModelForm):
+class DadosForms(forms.ModelForm):
     class Meta:
-        model = Envio
-        fields = '__all__'
+        model = Dados
+        fields = ['urls']
+        exclude = ['cadastro', 'created', 'updated']

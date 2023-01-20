@@ -15,10 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
-import saveurl.views
+from django.urls.conf import include
+from saveurl import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', saveurl.views.index),
+    path('admin/', admin.site.urls, name='admin'),
+    #path('', views.index, name='index'),
+    path('list/', include('saveurl.urls')),
+    path('', include('saveurl.urls')),
+    #path('test/<str:id>', views.test, name='test'),
 ]

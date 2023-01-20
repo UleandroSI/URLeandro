@@ -1,39 +1,22 @@
 from django.shortcuts import render, HttpResponse, redirect
-from .forms import CadastroForms, EnvioForms
-from saveurl.models import Cadastro, Envio
+from saveurl.models import Cadastro, Dados
+from .forms import DadosForms
+from django.views.generic import ListView
 import hashlib, time
-
+import re
 
 # Create your views here.
-def index(request):
-    #formulario = CadastroForms()
-    form = CadastroForms()
-    if request.method == 'GET':
-        dados = Envio.objects.all()
+def home(request):
+    pagina = Cadastro.objects.get(nome='nome')
+    return render(request, 'saveurl/exemplo.html', {"nome":pagina})
 
-        context = {
-            'dados': dados,
-            'form': form,
-        }
 
-        return render(request, 'saveurl/index.html', context)
+def lista(request):
+    pagina = Cadastro.objects.get(nome='nome')
+    return render(request, 'saveurl/exemplo.html', {"nome": pagina})
 
-    elif request.method == 'POST':
-        form = CadastroForms(request.POST or None)
-
-        if form.is_valid():
-            data = time.time()
-            nome = str(form['nome']).encode()
-            data = str(data).encode()
-            hash = hashlib.md5(nome + data)
-            hashex = hash.hexdigest()
-            form.save()
-            return redirect("/")
-        else:
-            dados = Envio.objects.all()
-            context = {
-                'dados': dados,
-                'form': form,
-            }
-
-            return render(request, 'saveurl/index.html', context)
+def emailRegex(s):
+   pat = "^[a-zA-Z0-9-_]+@[a-zA-Z0-9]+\.[a-z]{1,3}$"
+   if re.match(pat,s):
+      return True
+   return False
