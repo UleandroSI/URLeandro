@@ -20,8 +20,6 @@ from saveurl import views
 
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
-    #path('', views.index, name='index'),
-    path('list/', include('saveurl.urls')),
-    path('', include('saveurl.urls')),
-    #path('test/<str:id>', views.test, name='test'),
+    path('', views.home, name='home'),
+    path('list/', include('saveurl.urls'), name='dados'),
 ]

@@ -1,4 +1,6 @@
 # URLeandro
+<div id="top"/>
+
 ## Django SaveURL
 
 
@@ -14,6 +16,7 @@ A página é aberta para qualquer um que tenha o link, e pode ser compartilhada 
 <a href="#requesites">Pré Requesitos</a> .
 <a href="#licence">Licença</a> .
 <a href="#autor">Autor</a> .
+<a href="#referencias">Referências</a> .
 </p>
  
 <br>
@@ -21,21 +24,33 @@ A página é aberta para qualquer um que tenha o link, e pode ser compartilhada 
 <h4 align="center">
 	🚧Projeto SaveURL	🚀 Em contrução... 🚧
 </h4>
-### O que faz o projeto
+
+
+<div id="about"/>
+
+## Sobre
+
+#### O que faz o projeto
 
 - [] Criar descrição do Projeto.
 - [] Criar backend com Python.
 - [] Criar template para páginas de Django.
 - [] GIF's de demonstração de funcionamento.
-	
-### Tecnologias
+
+<div id="tecnologias"/>
+
+## Tecnologias
+
 - [Python 3]()
 - [Django 10]()
 - [HTML]()
 - [BootStrap 5]()
 - [MySQL](https://dev.mysql.com/doc/)
 
-#requesites
+<div id="requesites"/>
+
+## Requesitos
+
 ### Pré Requesitos
 Antes de começar é necessário ter instalado as seguintes ferramentas:
 
@@ -53,8 +68,37 @@ $ yarn
 $ yarn start
 ```
 
+***
 
-### Problemas
+<div id="licence"/>
+
+## Licença
+
+<h4 align="center">GNU GENERAL PUBLIC LICENSE</h4>
+<h4 align="center">Version 3, 29 June 2007</h4>
+
+-Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
+ Everyone is permitted to copy and distribute verbatim copies
+ of this license document, but changing it is not allowed.
+
+*** 
+
+<div id="autor" />
+
+## Autor
+<div align="center">
+
+[![Github](http://img.shields.io/badge/github-%231877F2.svg?&style=for-the-badge&logo=github&logoColor=white&color=black)](https://github.com/) 
+
+By uLeandroSP [See my Github](https://github.com/UleandroSI)
+</div>
+
+***
+
+<div id="problemas"/>
+
+## Problemas
+
 [Gist](https://gist.github.com/UleandroSI/1907913ddeb604069f36f67ef05912c2.js)
 - Ao acessar a página apresenta formulário:
 ```
@@ -79,11 +123,11 @@ nome = models.CharField(max_length=64, verbose_name='Nome', primary_key=True, na
 - Estou com dificuldades para montar as views.
 
 
-*** 
-### Autor
-By uLeandroSP [See my Github](https://github.com/UleandroSI)
 ***
-### Referências
+<div id="referencias"/>
+
+## Referências
+
 [Bootstrap](https://www.bootstrapcdn.com)
 
 [Django W3Schools](https://www.w3schools.com/django/index.php)
@@ -106,3 +150,5 @@ By uLeandroSP [See my Github](https://github.com/UleandroSI)
 
 [Python Guides Django](https://pythonguides.com/django/)
 
+***
+<div align="center"> <a href="#top">Top</a> </div>
