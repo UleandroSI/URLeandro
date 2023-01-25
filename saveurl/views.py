@@ -44,12 +44,14 @@ def home(request):
             data = str(data_atual).encode()
             hash = hashlib.sha256(nome + data)
             salvar.nome = hash.hexdigest()
+            link = hash.hexdigest()
 
             salvar.save()
 
             #contexto['mensagem'] = "Sua página foi criada com sucesso. Link: "
             #return render(request, 'saveurl/index.html', context=contexto)
-            return render(request, list_dados, salvar.nome)
+            #return render(request, list_dados, salvar.nome)
+            return redirect(" {% url '<str:link' %}")
 
     else:
         contexto['nome'] = nome
@@ -60,21 +62,34 @@ def home(request):
 
 
 def simples(request):
-    pagina = Cadastro.objects.get(nome='nome')
-    return render(request, 'saveurl/exemplo.html', {"nome":pagina})
+#    pagina = Cadastro.objects.get(nome='nome')
+    #return render(request, 'saveurl/exemplo.html', {"nome":pagina})
+    return render(request, 'saveurl/exemplo.html')
 
 
-def list_dados(request, url_parameter):
-    context = {}
-    cadastros = Cadastro.objects.get(nome=url_parameter)
-    cadastro_id = cadastros.id
-    print(cadastro_id)
-    dados_id = Dados.objects.filter(cadastro_id=cadastro_id)
-    print(dados_id)
+def listDados(request, url_parameter):
+    if request.method == 'GET':
+        context = {}
+        cadastros = Cadastro.objects.get(nome=url_parameter)
+        cadastro_id = cadastros.id
+        print(cadastro_id)
+        dados_id = Dados.objects.filter(cadastro_id=cadastro_id)
+        print(dados_id)
 
-    context['dados'] = dados_id
-    context['url_parameter'] = url_parameter
-    return render(request, 'saveurl/dados_list.html', context)
+        context['dados'] = dados_id
+        context['url_parameter'] = url_parameter
+        return render(request, 'saveurl/dados_list.html', context)
+    else:
+        form = DadosForms(request.POST)
+
+        if form.is_valid():
+            instancia = form.save()
+            form = DadosForms()
+
+        context = {
+            'form': form
+        }
+        return render(request, 'saveurl/dados_list.html', context=context)
 
 
 def emailRegex(s):

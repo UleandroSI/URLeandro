@@ -18,8 +18,11 @@ from django.urls import path
 from django.urls.conf import include
 from saveurl import views
 
+
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
     path('', views.home, name='home'),
+    path('<str:url_parameter>', views.listDados, name='listDados'),
     path('list/', include('saveurl.urls'), name='dados'),
+    path('exemplo/', views.simples, name='exemplo'),
 ]

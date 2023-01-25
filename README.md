@@ -99,7 +99,7 @@ By uLeandroSP [See my Github](https://github.com/UleandroSI)
 
 ## Problemas
 
-[Gist](https://gist.github.com/UleandroSI/1907913ddeb604069f36f67ef05912c2.js)
+[Gist](https://gist.github.com/UleandroSI/1907913ddeb604069f36f67ef05912c2)
 - Ao acessar a página apresenta formulário:
 ```
 <form action="{% url 'index' %}" name="cadastro" method="POST" novalidate>
